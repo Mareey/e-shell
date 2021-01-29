@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #828282;
+      position: relative;
+      height: 100vh;
+      background-color: #F4F6F8;
+    }
+
+    nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .body-wrap {
+      display: flex;
+      position: absolute;
+      width: calc(100% - 60px);
+      left: 0;
+      height: calc(100% - 70px);
+      padding: 0 30px;
+      top: 70px;
+    }
+
+    aside {
+      max-width: 250px;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      padding-bottom: 30px;
+    }
+
+    main .frame-wrapper {
+      border-radius: 5px;
+      box-shadow: 0px 3px 4px rgba(30, 30, 30, 0.1);
+      height: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #bentoFrameHolder {
+      background: url('https://www.bento.africa/img/bento-logo.gif') center center/cover no-repeat;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    Main Nav
+  </nav>
+  <div class="body-wrap">
+    <aside>
+      Aside
+    </aside>
+    <main>
+      <div class="frame-wrapper" id="bentoFrameHolder">
+        <iframe id="bentoFrame"
+          src="http://localhost:3000?auth_source=6001db47757899df79bcfffe&auth_token=cccccc"
+          style="display: none;"
+          onload="closeLoader();">
+      </iframe>
+      </div>
+    </main>
+  </div>
+</body>
+<script>
+  function closeLoader() {
+    setTimeout(function () {
+      document.getElementById("bentoFrame").style.display = "block";
+      document.getElementById("bentoFrameHolder").style.backgroundImage = "none";
+    }, 3000);
+  }
+</script>
+
+</html>
